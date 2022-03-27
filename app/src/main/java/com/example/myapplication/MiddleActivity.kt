@@ -21,11 +21,6 @@ class MiddleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_middle)
 
-
-
-
-
-
         doAsync {
 
             activityUiThread {
@@ -33,7 +28,6 @@ class MiddleActivity : AppCompatActivity() {
                 getData()
 
                 Thread.sleep(5000)
-
 
                 btn_next.isEnabled = true
 
@@ -80,6 +74,9 @@ class MiddleActivity : AppCompatActivity() {
                     }else if (firstOne.toInt() == 3) {
                         restAPI.setBorrados3(secondTwo[0].toInt())
 //                        Log.i("response", "Three " + secondTwo[0])
+                    }else if (firstOne.toInt() == 2) {
+                        restAPI.setBorrados2(secondTwo[0].toInt())
+                        Log.i("response", "Two " + secondTwo[0])
                     }
                 }
 //                repolla.setText(response.body()!!.id_repolla.toString())

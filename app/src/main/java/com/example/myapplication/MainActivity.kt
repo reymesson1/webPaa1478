@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     var restAPI = RestAPI()
+    var datos2 = mutableListOf<String>()
     var datos3 = mutableListOf<String>()
     var datos4 = mutableListOf<String>()
 
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+        datos2 = restAPI.datos2
         datos3 = restAPI.datos3
         datos4 = restAPI.datos4
         restAPI.generateDigit()
@@ -42,9 +44,42 @@ class MainActivity : AppCompatActivity() {
             restAPI.removeElementThreeDigit(at.toInt())
         }
 
+        restAPI.getBorrados2().forEach{at-> // borrado de API
 
+            restAPI.removeElementTwoDigit(at.toInt())
+        }
+
+        getAdapterTwoDigit()
         getAdapterThreeDigit()
         getAdapterFourthDigit()
+
+    }
+
+    fun getAdapterTwoDigit() {
+
+        val adaptador2 = ArrayAdapter(this@MainActivity,
+            R.layout.elemento_de_lista,
+            datos2)
+        miLista2.adapter = adaptador2
+
+        miLista3.onItemClickListener =
+            object : AdapterView.OnItemClickListener{
+                override fun onItemClick(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+
+                    restAPI.setBorrados2(miLista2.getItemIdAtPosition(position).toInt())
+                    var intent = Intent(this@MainActivity, MainActivity::class.java)
+                    startActivity(intent)
+
+                    Log.i("response", "saved ${miLista2.getItemAtPosition(position)} "  )
+                    Log.i("response", "saved ${miLista2.getItemIdAtPosition(position)} "  )
+
+                }
+            }
 
     }
 
