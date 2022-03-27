@@ -17,7 +17,6 @@ class RestAPI {
 
     }
 
-//    var borrados4 = mutableListOf<String>()
 
     fun setBorrados(num : Int){
 
