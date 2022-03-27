@@ -20,6 +20,7 @@ class RestAPI {
 
         var token = ""
         var userId = ""
+        var borrados3 = mutableListOf<String>()
         var borrados4 = mutableListOf<String>()
 
     }
@@ -74,18 +75,69 @@ class RestAPI {
     }
 
 
-    fun setBorrados(num : Int){
+    fun setBorrados3(num : Int){
 
-        RestAPI.borrados4.add(num.toString())
-
+        RestAPI.borrados3.add(num.toString())
     }
 
-    fun getBorrados(): MutableList<String> {
+    fun getBorrados3(): MutableList<String> {
+
+        return RestAPI.borrados3
+    }
+    fun setBorrados4(num : Int){
+
+        RestAPI.borrados4.add(num.toString())
+    }
+
+    fun getBorrados4(): MutableList<String> {
 
         return RestAPI.borrados4
     }
 
-    fun removeElementFourthDigit(num : Int){
+    fun removeElementThreeDigit(num : Int){
+
+        if(num>0&&num<=9) {
+//            Log.i("response", (miLista4.getItemIdAtPosition(position) + 1).toString())
+//            datos4.set(num,"") //0009 // muchos
+            datos3.set(num,"") //009
+            datos2.set(num,"") //09
+            datos.set(num-1,"") //9
+
+        }else if(num>9&&num<=99) {
+            Log.i("response",num.toString())
+            Log.i("response",num.toString().substring(1))
+//            datos4.set(num,"") // muchos
+            datos3.set(num,"")
+            datos2.set(num,"")
+            datos.set(num.toString().substring(1).toInt()-1,"")
+
+
+        }else if(num>99&&num<=999) { //aqui esta llegand 125 -> 25 -> 5 solo tres digitos
+            Log.i("response",num.toString())
+            Log.i("response",num.toString().substring(1))
+            Log.i("response",num.toString().substring(2))
+            Log.i("response",num.toString().substring(3))
+
+            var manyStr = num; datos4.set(manyStr.toInt()-1,"") // muchos
+            var manyStr1 = "1"+num; datos4.set(manyStr1.toInt()-1,"") // muchos
+            var manyStr2 = "2"+num; datos4.set(manyStr2.toInt()-1,"") // muchos
+            var manyStr3 = "3"+num; datos4.set(manyStr3.toInt()-1,"") // muchos
+            var manyStr4 = "4"+num; datos4.set(manyStr4.toInt()-1,"") // muchos
+            var manyStr5 = "5"+num; datos4.set(manyStr5.toInt()-1,"") // muchos
+            var manyStr6 = "6"+num; datos4.set(manyStr6.toInt()-1,"") // muchos
+            var manyStr7 = "7"+num; datos4.set(manyStr7.toInt()-1,"") // muchos
+            var manyStr8 = "8"+num; datos4.set(manyStr8.toInt()-1,"") // muchos
+            var manyStr9 = "9"+num; datos4.set(manyStr9.toInt()-1,"") // muchos
+            
+
+            datos3.set(num-1,"")
+            datos2.set(num.toString().substring(1).toInt()-1,"")
+            datos.set(num.toString().substring(2).toInt()-1,"")
+            Log.i("response", "aqui "+ num.toString().substring(2))
+        }
+
+
+    }fun removeElementFourthDigit(num : Int){
 
         if(num>0&&num<=9) {
 //            Log.i("response", (miLista4.getItemIdAtPosition(position) + 1).toString())

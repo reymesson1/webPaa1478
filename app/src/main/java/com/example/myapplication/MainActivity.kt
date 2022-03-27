@@ -30,12 +30,16 @@ class MainActivity : AppCompatActivity() {
         restAPI.generateThreeDigit()
         restAPI.generateFourthDigit()
 
+        Log.i("response", "borrados: " + restAPI.getBorrados4().size)
 
-        Log.i("response", "borrados: " + restAPI.getBorrados().size)
-
-        restAPI.getBorrados().forEach{at->
+        restAPI.getBorrados4().forEach{at-> // borrado de API
 
             restAPI.removeElementFourthDigit(at.toInt())
+        }
+
+        restAPI.getBorrados3().forEach{at-> // borrado de API
+
+            restAPI.removeElementThreeDigit(at.toInt())
         }
 
 
@@ -60,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                     id: Long
                 ) {
 
-                    restAPI.setBorrados(miLista3.getItemIdAtPosition(position).toInt())
+                    restAPI.setBorrados3(miLista3.getItemIdAtPosition(position).toInt())
                     var intent = Intent(this@MainActivity, MainActivity::class.java)
                     startActivity(intent)
 
@@ -88,7 +92,7 @@ class MainActivity : AppCompatActivity() {
                     id: Long
                 ) {
 
-                    restAPI.setBorrados(miLista4.getItemIdAtPosition(position).toInt())
+                    restAPI.setBorrados4(miLista4.getItemIdAtPosition(position).toInt())
 //                    restAPI.removeElementFourthDigit(miLista4.getItemIdAtPosition(position).toInt())
                     var intent = Intent(this@MainActivity, MainActivity::class.java)
                     startActivity(intent)
