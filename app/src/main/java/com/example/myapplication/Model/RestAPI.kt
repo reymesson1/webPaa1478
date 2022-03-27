@@ -45,6 +45,44 @@ class RestAPI {
         return masterService
     }
 
+    fun setPostSendComprarUnoAPI(
+        numero : Int,
+        cifras : Int,
+        telefono: String,
+        cliente: String,
+        id_repolla: String,
+        ronda: String
+    ){
+
+        var setPostSendComprarUno = retrofit.create(PostSendComprarUno::class.java)
+
+        var call = setPostSendComprarUno.setSendComprarUno(
+
+            numero,
+            cifras,
+            telefono,
+            cliente,
+            id_repolla,
+            ronda
+        )
+
+        call.enqueue(object : Callback<ResponseComprarUno>{
+            override fun onResponse(
+                call: Call<ResponseComprarUno>,
+                response: Response<ResponseComprarUno>
+            ) {
+                Log.i("response", response.body().toString())
+            }
+
+            override fun onFailure(call: Call<ResponseComprarUno>, t: Throwable) {
+                Log.i("error", t.toString())
+            }
+
+        })
+
+
+    }
+
 
     fun setPostLogin(email:String, password:String){
 
