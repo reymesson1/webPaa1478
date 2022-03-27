@@ -94,7 +94,51 @@ class RestAPI {
         return RestAPI.borrados4
     }
 
-    fun removeElementFourthDigit(num : Int){
+    fun removeElementThreeDigit(num : Int){
+
+        if(num>0&&num<=9) {
+//            Log.i("response", (miLista4.getItemIdAtPosition(position) + 1).toString())
+//            datos4.set(num,"") //0009 // muchos
+            datos3.set(num,"") //009
+            datos2.set(num,"") //09
+            datos.set(num-1,"") //9
+
+        }else if(num>9&&num<=99) {
+            Log.i("response",num.toString())
+            Log.i("response",num.toString().substring(1))
+//            datos4.set(num,"") // muchos
+            datos3.set(num,"")
+            datos2.set(num,"")
+            datos.set(num.toString().substring(1).toInt()-1,"")
+
+
+        }else if(num>99&&num<=999) { //aqui esta llegand 125 -> 25 -> 5 solo tres digitos
+            Log.i("response",num.toString())
+            Log.i("response",num.toString().substring(1))
+            Log.i("response",num.toString().substring(2))
+            Log.i("response",num.toString().substring(3))
+
+
+//            datos4.set(num-1,"") // muchos
+            datos3.set(num-1,"")
+            datos2.set(num.toString().substring(1).toInt()-1,"")
+            datos.set(num.toString().substring(2).toInt()-1,"")
+            Log.i("response", "aqui "+ num.toString().substring(2))
+        }else if(num>999&&num<=9999) {
+            Log.i("response",num.toString())
+            Log.i("response",num.toString().substring(1))
+            Log.i("response",num.toString().substring(2))
+            Log.i("response",num.toString().substring(3))
+
+
+//            datos4.set(num-1,"") // muchos
+            datos3.set(num.toString().substring(1).toInt()-1,"")
+            datos2.set(num.toString().substring(2).toInt()-1,"")
+            datos.set(num.toString().substring(3).toInt()-1,"")
+        }
+
+
+    }fun removeElementFourthDigit(num : Int){
 
         if(num>0&&num<=9) {
 //            Log.i("response", (miLista4.getItemIdAtPosition(position) + 1).toString())

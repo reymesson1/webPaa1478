@@ -30,12 +30,16 @@ class MainActivity : AppCompatActivity() {
         restAPI.generateThreeDigit()
         restAPI.generateFourthDigit()
 
-
         Log.i("response", "borrados: " + restAPI.getBorrados4().size)
 
-        restAPI.getBorrados4().forEach{at->
+        restAPI.getBorrados4().forEach{at-> // borrado de API
 
             restAPI.removeElementFourthDigit(at.toInt())
+        }
+
+        restAPI.getBorrados3().forEach{at-> // borrado de API
+
+            restAPI.removeElementThreeDigit(at.toInt())
         }
 
 
