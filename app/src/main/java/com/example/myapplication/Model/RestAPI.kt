@@ -20,6 +20,7 @@ class RestAPI {
 
         var token = ""
         var userId = ""
+        var borrados3 = mutableListOf<String>()
         var borrados4 = mutableListOf<String>()
 
     }
@@ -74,13 +75,21 @@ class RestAPI {
     }
 
 
-    fun setBorrados(num : Int){
+    fun setBorrados3(num : Int){
 
-        RestAPI.borrados4.add(num.toString())
-
+        RestAPI.borrados3.add(num.toString())
     }
 
-    fun getBorrados(): MutableList<String> {
+    fun getBorrados3(): MutableList<String> {
+
+        return RestAPI.borrados3
+    }
+    fun setBorrados4(num : Int){
+
+        RestAPI.borrados4.add(num.toString())
+    }
+
+    fun getBorrados4(): MutableList<String> {
 
         return RestAPI.borrados4
     }

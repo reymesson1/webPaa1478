@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity() {
         restAPI.generateFourthDigit()
 
 
-        Log.i("response", "borrados: " + restAPI.getBorrados().size)
+        Log.i("response", "borrados: " + restAPI.getBorrados4().size)
 
-        restAPI.getBorrados().forEach{at->
+        restAPI.getBorrados4().forEach{at->
 
             restAPI.removeElementFourthDigit(at.toInt())
         }
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                     id: Long
                 ) {
 
-                    restAPI.setBorrados(miLista3.getItemIdAtPosition(position).toInt())
+                    restAPI.setBorrados3(miLista3.getItemIdAtPosition(position).toInt())
                     var intent = Intent(this@MainActivity, MainActivity::class.java)
                     startActivity(intent)
 
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
                     id: Long
                 ) {
 
-                    restAPI.setBorrados(miLista4.getItemIdAtPosition(position).toInt())
+                    restAPI.setBorrados4(miLista4.getItemIdAtPosition(position).toInt())
 //                    restAPI.removeElementFourthDigit(miLista4.getItemIdAtPosition(position).toInt())
                     var intent = Intent(this@MainActivity, MainActivity::class.java)
                     startActivity(intent)

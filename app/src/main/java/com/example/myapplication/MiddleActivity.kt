@@ -59,11 +59,6 @@ class MiddleActivity : AppCompatActivity() {
 //                debo.setText(response.body()!!.debo.toString())
 //                cupo.setText(response.body()!!.cupo.toString())
 
-                Log.i("response", response.body()!!.jugados[0].toString())
-                Log.i("response", "Jugados array size: "+ response.body()!!.jugados.size.toString())
-
-//                loadingJugados(response.body()!!.jugados)
-
                 for(jugado in response.body()!!.jugados) {
 
                     var arrStr = jugado.toString().split(",")
@@ -75,10 +70,9 @@ class MiddleActivity : AppCompatActivity() {
 
 
                     if (firstOne.toInt() == 4) {
-                        Log.i("response", "Jugados SecondFinal: " + secondTwo[0].toString())
-
-                        restAPI.setBorrados(secondTwo[0].toInt())
-
+                        restAPI.setBorrados4(secondTwo[0].toInt())
+                    }else if (firstOne.toInt() == 3) {
+//                        restAPI.setBorrados3(secondTwo[0].toInt())
                     }
                 }
 //                repolla.setText(response.body()!!.id_repolla.toString())
