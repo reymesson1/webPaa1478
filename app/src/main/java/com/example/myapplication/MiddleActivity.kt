@@ -77,6 +77,9 @@ class MiddleActivity : AppCompatActivity() {
                     }else if (firstOne.toInt() == 2) {
                         restAPI.setBorrados2(secondTwo[0].toInt())
                         Log.i("response", "Two " + secondTwo[0])
+                    }else if (firstOne.toInt() == 1) {
+                        restAPI.setBorrados(secondTwo[0].toInt())
+                        Log.i("response", "One " + secondTwo[0])
                     }
                 }
 //                repolla.setText(response.body()!!.id_repolla.toString())
