@@ -52,6 +52,7 @@ class MiddleActivity : AppCompatActivity() {
 
                 getData()
 
+                
             }
         }
 
