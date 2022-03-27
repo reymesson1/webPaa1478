@@ -202,18 +202,29 @@ class RestAPI {
                 datos.set(num.toString().substring(1).toInt()-1,"")
             }
 
-            if(num.toString().length==1){
+            if(num.toString().length==2){
 
                 var manyStr30 = num; datos3.set(manyStr30.toInt()-1,"") // muchos
-                var manyStr31 = "10"+num; datos3.set(manyStr31.toInt()-1,"") // muchos
-                var manyStr32 = "20"+num; datos3.set(manyStr32.toInt()-1,"") // muchos
-                var manyStr33 = "30"+num; datos3.set(manyStr33.toInt()-1,"") // muchos
-                var manyStr34 = "40"+num; datos3.set(manyStr34.toInt()-1,"") // muchos
-                var manyStr35 = "50"+num; datos3.set(manyStr35.toInt()-1,"") // muchos
-                var manyStr36 = "60"+num; datos3.set(manyStr36.toInt()-1,"") // muchos
-                var manyStr37 = "70"+num; datos3.set(manyStr37.toInt()-1,"") // muchos
-                var manyStr38 = "80"+num; datos3.set(manyStr38.toInt()-1,"") // muchos
-                var manyStr39 = "90"+num; datos3.set(manyStr39.toInt()-1,"") // muchos
+                var manyStr31 = "1"+num; datos3.set(manyStr31.toInt()-1,"") // muchos
+                var manyStr32 = "2"+num; datos3.set(manyStr32.toInt()-1,"") // muchos
+                var manyStr33 = "3"+num; datos3.set(manyStr33.toInt()-1,"") // muchos
+                var manyStr34 = "4"+num; datos3.set(manyStr34.toInt()-1,"") // muchos
+                var manyStr35 = "5"+num; datos3.set(manyStr35.toInt()-1,"") // muchos
+                var manyStr36 = "6"+num; datos3.set(manyStr36.toInt()-1,"") // muchos
+                var manyStr37 = "7"+num; datos3.set(manyStr37.toInt()-1,"") // muchos
+                var manyStr38 = "8"+num; datos3.set(manyStr38.toInt()-1,"") // muchos
+                var manyStr39 = "9"+num; datos3.set(manyStr39.toInt()-1,"") // muchos
+
+                for(i in 0..9){
+
+                    for(j in 0..9){
+
+                        Log.i("response", "datos4.set(${j}${i}0${num-1} ,${""})  ")
+                        var numStr = "${j}${i}0${num-1}".toInt()
+                        datos4.set(numStr,"")
+                    }
+
+                }
 
             }
 
