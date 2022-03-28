@@ -282,9 +282,9 @@ class RestAPI {
 
                     for(j in 0..9){
 
-//                        Log.i("response", "datos4.set(${j}${i}0${num-1} ,${""})  ")
-                        var numStr = "${j}${i}0${num-1}".toInt()
-                        datos4.set(numStr,"")
+                        Log.i("response", "datos4.set(${j}${i}0${num-1} ,${""})  ")
+//                        var numStr = "${j}${i}0${num-1}".toInt()
+//                        datos4.set(numStr,"")
                     }
 
                 }
