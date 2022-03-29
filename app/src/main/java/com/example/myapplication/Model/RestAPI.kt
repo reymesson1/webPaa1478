@@ -24,6 +24,12 @@ class RestAPI {
         var borrados2 = mutableListOf<String>()
         var borrados3 = mutableListOf<String>()
         var borrados4 = mutableListOf<String>()
+        var premio = ""
+        var debo = ""
+        var cupo = ""
+        var repolla = ""
+        var ronda = ""
+        var acumulado = ""
 
     }
 

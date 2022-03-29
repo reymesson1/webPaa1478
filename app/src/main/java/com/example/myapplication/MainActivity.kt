@@ -21,8 +21,6 @@ class MainActivity : AppCompatActivity() {
     var datos2 = mutableListOf<String>()
     var datos3 = mutableListOf<String>()
     var datos4 = mutableListOf<String>()
-    var nameTXTLocal = ""
-    var telephoneTXTLocal = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +35,15 @@ class MainActivity : AppCompatActivity() {
         restAPI.generateTwoDigit()
         restAPI.generateThreeDigit()
         restAPI.generateFourthDigit()
+
+
+        premio.setText(RestAPI.premio)
+        debo.setText(RestAPI.debo)
+        cupo.setText(RestAPI.cupo)
+        
+        repolla.setText(RestAPI.repolla)
+        ronda.setText(RestAPI.ronda)
+        acumulado.setText(RestAPI.acumulado)
 
         Log.i("response", "borrados: " + restAPI.getBorrados4().size)
 

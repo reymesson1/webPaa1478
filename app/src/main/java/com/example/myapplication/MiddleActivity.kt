@@ -55,9 +55,9 @@ class MiddleActivity : AppCompatActivity() {
             override fun onResponse(call: Call<ResponseRPEstado>, response: Response<ResponseRPEstado>) {
                 Log.i("response", response.body().toString())
 
-//                premio.setText(response.body()!!.precio.toString())
-//                debo.setText(response.body()!!.debo.toString())
-//                cupo.setText(response.body()!!.cupo.toString())
+                RestAPI.premio = response.body()!!.precio.toString()
+                RestAPI.debo = response.body()!!.debo.toString()
+                RestAPI.cupo = response.body()!!.cupo.toString()
 
                 for(jugado in response.body()!!.jugados) {
 
@@ -83,9 +83,10 @@ class MiddleActivity : AppCompatActivity() {
                         Log.i("response", "One " + secondTwo[0])
                     }
                 }
-//                repolla.setText(response.body()!!.id_repolla.toString())
-//                ronda.setText(response.body()!!.ronda.toString())
-//                acumulado.setText(response.body()!!.acumulado.toString())
+
+                RestAPI.repolla = response.body()!!.id_repolla.toString()
+                RestAPI.ronda = response.body()!!.ronda.toString()
+                RestAPI.acumulado = response.body()!!.acumulado.toString()
 
 
 
