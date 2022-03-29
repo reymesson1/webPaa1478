@@ -122,7 +122,7 @@ class RestAPI {
 
     fun getBorrados(): MutableList<String> {
 
-        return RestAPI.borrados2
+        return RestAPI.borrados
     }
 
     fun setBorrados2(num : Int){
@@ -214,89 +214,70 @@ class RestAPI {
 
     fun removeElementTwoDigit(num : Int){
 
-        if(num>0&&num<=9) {
-//            Log.i("response", (miLista4.getItemIdAtPosition(position) + 1).toString())
-//            datos4.set(num,"") //0009 // muchos
-//            datos3.set(num,"") //009 //muchos
-            datos2.set(num,"") //09
-            datos.set(num-1,"") //9
-
-            var manyStr30 = num; datos3.set(manyStr30.toInt()-1,"") // muchos
-            var manyStr31 = "10"+num; datos3.set(manyStr31.toInt()-1,"") // muchos
-            var manyStr32 = "20"+num; datos3.set(manyStr32.toInt()-1,"") // muchos
-            var manyStr33 = "30"+num; datos3.set(manyStr33.toInt()-1,"") // muchos
-            var manyStr34 = "40"+num; datos3.set(manyStr34.toInt()-1,"") // muchos
-            var manyStr35 = "50"+num; datos3.set(manyStr35.toInt()-1,"") // muchos
-            var manyStr36 = "60"+num; datos3.set(manyStr36.toInt()-1,"") // muchos
-            var manyStr37 = "70"+num; datos3.set(manyStr37.toInt()-1,"") // muchos
-            var manyStr38 = "80"+num; datos3.set(manyStr38.toInt()-1,"") // muchos
-            var manyStr39 = "90"+num; datos3.set(manyStr39.toInt()-1,"") // muchos
-
-            var manyStr40 = num; datos4.set(manyStr40.toInt()-1,"") // muchos
-            var manyStr41 = "100"+num; datos4.set(manyStr41.toInt()-1,"") // muchos
-            for(i in 0..9){
-
-                for(j in 0..9){
-
-//                    Log.i("response", "datos4.set(${j}${i}0${num-1} ,${""})  ")
-                    var numStr = "${j}${i}0${num-1}".toInt()
-                    datos4.set(numStr,"")
-                }
-
-            }
-//                var manyStr41 = "110"+num; datos4.set(manyStr41.toInt()-1,"") // muchos
-//                var manyStr41 = "120"+num; datos4.set(manyStr41.toInt()-1,"") // muchos
-            var manyStr42 = "200"+num; datos4.set(manyStr42.toInt()-1,"") // muchos
-            var manyStr43 = "300"+num; datos4.set(manyStr43.toInt()-1,"") // muchos
-            var manyStr44 = "400"+num; datos4.set(manyStr44.toInt()-1,"") // muchos
-            var manyStr45 = "500"+num; datos4.set(manyStr45.toInt()-1,"") // muchos
-            var manyStr46 = "600"+num; datos4.set(manyStr46.toInt()-1,"") // muchos
-            var manyStr47 = "700"+num; datos4.set(manyStr47.toInt()-1,"") // muchos
-            var manyStr48 = "800"+num; datos4.set(manyStr48.toInt()-1,"") // muchos
-            var manyStr49 = "900"+num; datos4.set(manyStr49.toInt()-1,"") // muchos
-
-        }else if(num>9&&num<=99) {
-            Log.i("response",num.toString())
-            Log.i("response",num.toString().substring(1))
-//            datos4.set(num,"") // muchos
-//            datos3.set(num,"") // muchos
+        if(num>=0&&num<=9) {
+            datos.set(num,"")
             datos2.set(num,"")
-            if(num%10!=0){
-                datos.set(num.toString().substring(1).toInt()-1,"")
+            for(i in 0..9){
+                 var numStr = "${i}${num}".toInt()
+                    datos3.set(numStr,"")
             }
-
-            if(num.toString().length==2){
-
-                var manyStr30 = num; datos3.set(manyStr30.toInt()-1,"") // muchos
-                var manyStr31 = "1"+num; datos3.set(manyStr31.toInt()-1,"") // muchos
-                var manyStr32 = "2"+num; datos3.set(manyStr32.toInt()-1,"") // muchos
-                var manyStr33 = "3"+num; datos3.set(manyStr33.toInt()-1,"") // muchos
-                var manyStr34 = "4"+num; datos3.set(manyStr34.toInt()-1,"") // muchos
-                var manyStr35 = "5"+num; datos3.set(manyStr35.toInt()-1,"") // muchos
-                var manyStr36 = "6"+num; datos3.set(manyStr36.toInt()-1,"") // muchos
-                var manyStr37 = "7"+num; datos3.set(manyStr37.toInt()-1,"") // muchos
-                var manyStr38 = "8"+num; datos3.set(manyStr38.toInt()-1,"") // muchos
-                var manyStr39 = "9"+num; datos3.set(manyStr39.toInt()-1,"") // muchos
-
-                for(i in 0..9){
-
-                    for(j in 0..9){
-
-                        Log.i("response", "datos4.set(${j}${i}0${num-1} ,${""})  ")
-//                        var numStr = "${j}${i}0${num-1}".toInt()
-//                        datos4.set(numStr,"")
-                    }
-
-                }
+            for(i in 0..9){
+                    var numStr = "${0}${i}${num}".toInt()
+                    datos4.set(numStr,"")
 
             }
+        }else if(num>9&&num<=99) {
+            datos.set(num.toString().substring(1).toInt(),"")
+            datos2.set(num,"")
+            for(i in 0..9){
+                 var numStr = "${i}${num}".toInt()
+                    datos3.set(numStr,"")
+            }
+            for(i in 0..9){
+                    var numStr = "${0}${i}${num}".toInt()
+                    datos4.set(numStr,"")
 
+            }
         }
-
-
     }
 
     fun removeElementThreeDigit(num : Int){
+
+        if(num>=0&&num<=9) { //003
+
+            datos.set(num,"")
+            datos2.set(num,"")
+            datos3.set(num,"")
+            for(i in 0..9){
+                Log.i("response", "${i}${0}${num}")
+                var numStr = "${i}${0}${num}".toInt()
+                datos4.set(numStr,"")
+
+            }
+        }else if(num>9&&num<=99) {
+            datos.set(num.toString().substring(1).toInt(),"")
+            datos2.set(num,"")
+            datos3.set(num,"")
+            for(i in 0..9){
+                Log.i("response", "${i}${0}${num}")
+                var numStr = "${i}${0}${num}".toInt()
+                datos4.set(numStr,"")
+
+            }
+        }else if(num>99&&num<=999) {
+            datos.set(num.toString().substring(1).toInt(),"")
+            datos2.set(num,"")
+            datos3.set(num,"")
+            for(i in 0..9){
+                Log.i("response", "${i}${0}${num}")
+                var numStr = "${i}${0}${num}".toInt()
+                datos4.set(numStr,"")
+
+            }
+        }
+    }
+
+    fun removeElementThreeDigitOLD(num : Int){
 
         if(num>0&&num<=9) {
 //            Log.i("response", (miLista4.getItemIdAtPosition(position) + 1).toString())
@@ -393,7 +374,7 @@ class RestAPI {
 
     fun generateFourthDigit(){
 
-        for (i in 1..9999) {
+        for (i in 0..9999) {
             if(i<10){
                 datos4+="000"+i.toString()
             }else if(i<100){
@@ -408,14 +389,14 @@ class RestAPI {
 
     fun generateDigit(){
 
-        for (i in 1..9) {
+        for (i in 0..9) {
             datos+=i.toString()
         }
     }
 
     fun generateTwoDigit(){
 
-        for (i in 1..99) {
+        for (i in 0..99) {
             if(i<10){
                 datos2+="0"+i.toString()
             }else{
@@ -427,7 +408,7 @@ class RestAPI {
 
     fun generateThreeDigit(){
 
-        for (i in 1..999) {
+        for (i in 0..999) {
             if(i<10){
                 datos3+="00"+i.toString()
             }else if(i<100){

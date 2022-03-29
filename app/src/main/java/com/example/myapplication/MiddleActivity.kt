@@ -25,9 +25,9 @@ class MiddleActivity : AppCompatActivity() {
 
             activityUiThread {
 
-                getData()
+//                getData()
 
-                Thread.sleep(5000)
+//                Thread.sleep(5000)
 
                 btn_next.isEnabled = true
 
