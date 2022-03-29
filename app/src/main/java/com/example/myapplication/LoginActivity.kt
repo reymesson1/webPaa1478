@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
 
                 activityUiThread {
 
-//                    Thread.sleep(4000)
+                    Thread.sleep(4000)
 
                     restAPI.setPostLogin("ag@ag.com","123456789")
 //                    restAPI.setPostLogin(emailTXT.text.toString(),passwordTXT.text.toString())

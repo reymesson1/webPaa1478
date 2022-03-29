@@ -25,9 +25,9 @@ class MiddleActivity : AppCompatActivity() {
 
             activityUiThread {
 
-//                getData()
+                getData()
 
-//                Thread.sleep(5000)
+                Thread.sleep(5000)
 
                 btn_next.isEnabled = true
 
@@ -71,9 +71,10 @@ class MiddleActivity : AppCompatActivity() {
 
                     if (firstOne.toInt() == 4) {
                         restAPI.setBorrados4(secondTwo[0].toInt())
+                        Log.i("response", "Four " + secondTwo[0])
                     }else if (firstOne.toInt() == 3) {
                         restAPI.setBorrados3(secondTwo[0].toInt())
-//                        Log.i("response", "Three " + secondTwo[0])
+                        Log.i("response", "Three " + secondTwo[0])
                     }else if (firstOne.toInt() == 2) {
                         restAPI.setBorrados2(secondTwo[0].toInt())
                         Log.i("response", "Two " + secondTwo[0])
