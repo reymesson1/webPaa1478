@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
     fun getAdapterTwoDigit() {
 
         val adaptador2 = ArrayAdapter(this@MainActivity,
-            R.layout.elemento_de_lista,
+            R.layout.elemento_de_lista_2,
             datos2)
         miLista2.adapter = adaptador2
 
@@ -188,7 +188,7 @@ class MainActivity : AppCompatActivity() {
     fun getAdapterThreeDigit() {
 
         val adaptador3 = ArrayAdapter(this@MainActivity,
-            R.layout.elemento_de_lista,
+            R.layout.elemento_de_lista_3,
             datos3)
         miLista3.adapter = adaptador3
 
@@ -248,7 +248,7 @@ class MainActivity : AppCompatActivity() {
     fun getAdapterFourthDigit() {
 
         val adaptador4 = ArrayAdapter(this@MainActivity,
-            R.layout.elemento_de_lista,
+            R.layout.elemento_de_lista_4,
             datos4)
         miLista4.adapter = adaptador4
 
