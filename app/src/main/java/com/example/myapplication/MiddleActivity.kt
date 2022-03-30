@@ -31,11 +31,32 @@ class MiddleActivity : AppCompatActivity() {
 
                 btn_next.isEnabled = true
 
+                btn_next_coin.isEnabled = true
+
+
+
             }
         }
 
 
         btn_next.setOnClickListener {
+
+            getData()
+
+            Thread.sleep(5000)
+
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+        }
+
+        btn_next_coin.setOnClickListener {
+
+            getDataCoins()
+
+            Thread.sleep(5000)
+
+            btn_next_coin.isEnabled = true
 
             var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -87,6 +108,65 @@ class MiddleActivity : AppCompatActivity() {
                 RestAPI.repolla = response.body()!!.id_repolla.toString()
                 RestAPI.ronda = response.body()!!.ronda.toString()
                 RestAPI.acumulado = response.body()!!.acumulado.toString()
+
+
+
+
+            }
+
+            override fun onFailure(call: Call<ResponseRPEstado>, t: Throwable) {
+                Log.i("error", t.toString())
+            }
+
+
+        })
+
+
+    }
+
+    fun getDataCoins(){
+
+        var masterServiceCoins = restAPI.getMasterCoinsAPI()
+
+        var call = masterServiceCoins.getMasterService()
+
+        call.enqueue(object : Callback<ResponseRPEstado> {
+
+            override fun onResponse(call: Call<ResponseRPEstado>, response: Response<ResponseRPEstado>) {
+                Log.i("response", response.body().toString())
+
+//                RestAPI.premio = response.body()!!.precio.toString()
+//                RestAPI.debo = response.body()!!.debo.toString()
+//                RestAPI.cupo = response.body()!!.cupo.toString()
+
+                for(jugado in response.body()!!.jugados) {
+
+                    var arrStr = jugado.toString().split(",")
+
+                    var firstOne = arrStr[0].substring(1, 2).toInt()
+                    var firstTwo = arrStr[1].substring(1, 5).split("]")
+                    var secondTwo = firstTwo[0].split(".")
+
+
+
+                    if (firstOne.toInt() == 4) {
+                        restAPI.setBorrados4(secondTwo[0].toInt())
+                        Log.i("response", "Four " + secondTwo[0])
+                    }else if (firstOne.toInt() == 3) {
+                        restAPI.setBorrados3(secondTwo[0].toInt())
+                        Log.i("response", "Three " + secondTwo[0])
+                    }else if (firstOne.toInt() == 2) {
+                        restAPI.setBorrados2(secondTwo[0].toInt())
+                        Log.i("response", "Two " + secondTwo[0])
+                    }else if (firstOne.toInt() == 1) {
+                        restAPI.setBorrados(secondTwo[0].toInt())
+                        Log.i("response", "One " + secondTwo[0])
+                    }
+                }
+
+//                RestAPI.repolla = response.body()!!.id_repolla.toString()
+//                RestAPI.ronda = response.body()!!.ronda.toString()
+//                RestAPI.acumulado = response.body()!!.acumulado.toString()
 
 
 

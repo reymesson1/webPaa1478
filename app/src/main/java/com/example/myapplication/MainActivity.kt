@@ -36,11 +36,10 @@ class MainActivity : AppCompatActivity() {
         restAPI.generateThreeDigit()
         restAPI.generateFourthDigit()
 
-
         premio.setText(RestAPI.premio)
         debo.setText(RestAPI.debo)
         cupo.setText(RestAPI.cupo)
-        
+
         repolla.setText(RestAPI.repolla)
         ronda.setText(RestAPI.ronda)
         acumulado.setText(RestAPI.acumulado)
@@ -90,42 +89,51 @@ class MainActivity : AppCompatActivity() {
                     id: Long
                 ) {
 
-                    Log.i("response", miLista.getItemIdAtPosition(position).toString())
-                    restAPI.setBorrados(miLista.getItemIdAtPosition(position).toInt())
-                    var intent = Intent(this@MainActivity, MainActivity::class.java)
-                    startActivity(intent)
+//                    Log.i("response", miLista.getItemIdAtPosition(position).toString())
+//                    restAPI.setBorrados(miLista.getItemIdAtPosition(position).toInt())
+//                    var intent = Intent(this@MainActivity, MainActivity::class.java)
+//                    startActivity(intent)
 
-//                    var modal = layoutInflater.inflate(R.layout.layout_item_modal, null)
-//
-//                    var alertDialog = AlertDialog.Builder(this@MainActivity)
-//
-//                    alertDialog.setView(modal)
-//
-//                    alertDialog.setTitle("Numero a vender")
-//
-//                    alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
-//
-//                        restAPI.setBorrados(miLista.getItemIdAtPosition(position).toInt())
-//
-//                        restAPI.setPostSendComprarUnoAPI(
-//                            miLista.getItemIdAtPosition(position).toInt(),
-//                            1,
-//                            modal.telephoneTXT.text.toString(),
-//                            modal.nameTXT.text.toString(),
-//                            "9",
-//                            "1"
-//                        )
-//
-//                        var intent = Intent(this@MainActivity, MainActivity::class.java)
-//                        startActivity(intent)
-//
-//
-//                        Log.i("response", "saved ${miLista.getItemAtPosition(position)} "  )
-//                        Log.i("response", "saved ${miLista.getItemIdAtPosition(position)} "  )
-//
-//                    })
-//
-//                    alertDialog.show()
+                    var modal = layoutInflater.inflate(R.layout.layout_item_modal, null)
+
+                    var alertDialog = AlertDialog.Builder(this@MainActivity)
+
+                    alertDialog.setView(modal)
+
+                    alertDialog.setTitle("Numero a vender")
+
+                    alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
+
+                        restAPI.setBorrados(miLista.getItemIdAtPosition(position).toInt())
+
+                        restAPI.setPostSendComprarUnoAPI(
+                            miLista.getItemIdAtPosition(position).toInt(),
+                            1,
+                            modal.telephoneTXT.text.toString(),
+                            modal.nameTXT.text.toString(),
+                            "9",
+                            "1"
+                        )
+
+                        restAPI.setPostSendComprarUnoCoinAPI(
+                            miLista4.getItemIdAtPosition(position).toInt(),
+                            1,
+                            modal.telephoneTXT.text.toString(),
+                            modal.nameTXT.text.toString(),
+                            "9",
+                            "1"
+                        )
+
+                        var intent = Intent(this@MainActivity, MainActivity::class.java)
+                        startActivity(intent)
+
+
+                        Log.i("response", "saved ${miLista.getItemAtPosition(position)} "  )
+                        Log.i("response", "saved ${miLista.getItemIdAtPosition(position)} "  )
+
+                    })
+
+                    alertDialog.show()
 
 
 
@@ -150,42 +158,51 @@ class MainActivity : AppCompatActivity() {
                     id: Long
                 ) {
 
-                    restAPI.setBorrados2(miLista2.getItemIdAtPosition(position).toInt())
+//                    restAPI.setBorrados2(miLista2.getItemIdAtPosition(position).toInt())
+//
+//                    var intent = Intent(this@MainActivity, MainActivity::class.java)
+//                    startActivity(intent)
 
-                    var intent = Intent(this@MainActivity, MainActivity::class.java)
-                    startActivity(intent)
+                    var modal = layoutInflater.inflate(R.layout.layout_item_modal, null)
 
-//                    var modal = layoutInflater.inflate(R.layout.layout_item_modal, null)
-//
-//                    var alertDialog = AlertDialog.Builder(this@MainActivity)
-//
-//                    alertDialog.setView(modal)
-//
-//                    alertDialog.setTitle("Numero a vender")
-//
-//                    alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
-//
-//                        restAPI.setBorrados2(miLista2.getItemIdAtPosition(position).toInt())
-//
-//                        restAPI.setPostSendComprarUnoAPI(
-//                            miLista2.getItemIdAtPosition(position).toInt(),
-//                            2,
-//                            modal.telephoneTXT.text.toString(),
-//                            modal.nameTXT.text.toString(),
-//                            "9",
-//                            "1"
-//                        )
-//
-//                        var intent = Intent(this@MainActivity, MainActivity::class.java)
-//                        startActivity(intent)
-//
-//
-//                        Log.i("response", "saved ${miLista2.getItemAtPosition(position)} "  )
-//                        Log.i("response", "saved ${miLista2.getItemIdAtPosition(position)} "  )
-//
-//                    })
-//
-//                    alertDialog.show()
+                    var alertDialog = AlertDialog.Builder(this@MainActivity)
+
+                    alertDialog.setView(modal)
+
+                    alertDialog.setTitle("Numero a vender")
+
+                    alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
+
+                        restAPI.setBorrados2(miLista2.getItemIdAtPosition(position).toInt())
+
+                        restAPI.setPostSendComprarUnoAPI(
+                            miLista2.getItemIdAtPosition(position).toInt(),
+                            2,
+                            modal.telephoneTXT.text.toString(),
+                            modal.nameTXT.text.toString(),
+                            "9",
+                            "1"
+                        )
+
+                        restAPI.setPostSendComprarUnoCoinAPI(
+                            miLista4.getItemIdAtPosition(position).toInt(),
+                            2,
+                            modal.telephoneTXT.text.toString(),
+                            modal.nameTXT.text.toString(),
+                            "9",
+                            "1"
+                        )
+
+                        var intent = Intent(this@MainActivity, MainActivity::class.java)
+                        startActivity(intent)
+
+
+                        Log.i("response", "saved ${miLista2.getItemAtPosition(position)} "  )
+                        Log.i("response", "saved ${miLista2.getItemIdAtPosition(position)} "  )
+
+                    })
+
+                    alertDialog.show()
 
                 }
             }
@@ -208,44 +225,53 @@ class MainActivity : AppCompatActivity() {
                     id: Long
                 ) {
 
-                    restAPI.setBorrados3(miLista3.getItemIdAtPosition(position).toInt())
+//                    restAPI.setBorrados3(miLista3.getItemIdAtPosition(position).toInt())
+//                    var intent = Intent(this@MainActivity, MainActivity::class.java)
+//                    startActivity(intent)
+
                     var intent = Intent(this@MainActivity, MainActivity::class.java)
                     startActivity(intent)
 
-//                    var intent = Intent(this@MainActivity, MainActivity::class.java)
-//                    startActivity(intent)
-//
-//                    var modal = layoutInflater.inflate(R.layout.layout_item_modal, null)
-//
-//                    var alertDialog = AlertDialog.Builder(this@MainActivity)
-//
-//                    alertDialog.setView(modal)
-//
-//                    alertDialog.setTitle("Numero a vender")
-//
-//                    alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
-//
-//                        restAPI.setBorrados3(miLista3.getItemIdAtPosition(position).toInt())
-//
-//                        restAPI.setPostSendComprarUnoAPI(
-//                            miLista3.getItemIdAtPosition(position).toInt(),
-//                            3,
-//                            modal.telephoneTXT.text.toString(),
-//                            modal.nameTXT.text.toString(),
-//                            "9",
-//                            "1"
-//                        )
-//
-//                        var intent = Intent(this@MainActivity, MainActivity::class.java)
-//                        startActivity(intent)
-//
-//
-//                        Log.i("response", "saved ${miLista3.getItemAtPosition(position)} "  )
-//                        Log.i("response", "saved ${miLista3.getItemIdAtPosition(position)} "  )
-//
-//                    })
-//
-//                    alertDialog.show()
+                    var modal = layoutInflater.inflate(R.layout.layout_item_modal, null)
+
+                    var alertDialog = AlertDialog.Builder(this@MainActivity)
+
+                    alertDialog.setView(modal)
+
+                    alertDialog.setTitle("Numero a vender")
+
+                    alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
+
+                        restAPI.setBorrados3(miLista3.getItemIdAtPosition(position).toInt())
+
+                        restAPI.setPostSendComprarUnoAPI(
+                            miLista3.getItemIdAtPosition(position).toInt(),
+                            3,
+                            modal.telephoneTXT.text.toString(),
+                            modal.nameTXT.text.toString(),
+                            "9",
+                            "1"
+                        )
+
+                        restAPI.setPostSendComprarUnoCoinAPI(
+                            miLista4.getItemIdAtPosition(position).toInt(),
+                            3,
+                            modal.telephoneTXT.text.toString(),
+                            modal.nameTXT.text.toString(),
+                            "9",
+                            "1"
+                        )
+
+                        var intent = Intent(this@MainActivity, MainActivity::class.java)
+                        startActivity(intent)
+
+
+                        Log.i("response", "saved ${miLista3.getItemAtPosition(position)} "  )
+                        Log.i("response", "saved ${miLista3.getItemIdAtPosition(position)} "  )
+
+                    })
+
+                    alertDialog.show()
 
                 }
             }
@@ -273,38 +299,47 @@ class MainActivity : AppCompatActivity() {
                     var intent = Intent(this@MainActivity, MainActivity::class.java)
                     startActivity(intent)
 
-//                    var modal = layoutInflater.inflate(R.layout.layout_item_modal, null)
-//
-//                    var alertDialog = AlertDialog.Builder(this@MainActivity)
-//
-//                    alertDialog.setView(modal)
-//
-//                    alertDialog.setTitle("Numero a vender")
-//
-//                    alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
-//
-//                        restAPI.setBorrados4(miLista4.getItemIdAtPosition(position).toInt())
-//
-//
-//                        restAPI.setPostSendComprarUnoAPI(
-//                            miLista4.getItemIdAtPosition(position).toInt(),
-//                            4,
-//                            modal.telephoneTXT.text.toString(),
-//                            modal.nameTXT.text.toString(),
-//                            "9",
-//                            "1"
-//                        )
-//
-//                        var intent = Intent(this@MainActivity, MainActivity::class.java)
-//                        startActivity(intent)
-//
-//
-//                        Log.i("response", "saved ${miLista4.getItemAtPosition(position)} "  )
-//                        Log.i("response", "saved ${miLista4.getItemIdAtPosition(position)} "  )
-//
-//                    })
-//
-//                    alertDialog.show()
+                    var modal = layoutInflater.inflate(R.layout.layout_item_modal, null)
+
+                    var alertDialog = AlertDialog.Builder(this@MainActivity)
+
+                    alertDialog.setView(modal)
+
+                    alertDialog.setTitle("Numero a vender")
+
+                    alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
+
+                        restAPI.setBorrados4(miLista4.getItemIdAtPosition(position).toInt())
+
+
+                        restAPI.setPostSendComprarUnoAPI(
+                            miLista4.getItemIdAtPosition(position).toInt(),
+                            4,
+                            modal.telephoneTXT.text.toString(),
+                            modal.nameTXT.text.toString(),
+                            "9",
+                            "1"
+                        )
+
+                        restAPI.setPostSendComprarUnoCoinAPI(
+                            miLista4.getItemIdAtPosition(position).toInt(),
+                            4,
+                            modal.telephoneTXT.text.toString(),
+                            modal.nameTXT.text.toString(),
+                            "9",
+                            "1"
+                        )
+
+                        var intent = Intent(this@MainActivity, MainActivity::class.java)
+                        startActivity(intent)
+
+
+                        Log.i("response", "saved ${miLista4.getItemAtPosition(position)} "  )
+                        Log.i("response", "saved ${miLista4.getItemIdAtPosition(position)} "  )
+
+                    })
+
+                    alertDialog.show()
 
                 }
 

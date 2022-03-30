@@ -51,6 +51,13 @@ class RestAPI {
         return masterService
     }
 
+    fun getMasterCoinsAPI() : MasterServiceCoins{
+
+        var masterServiceCoins = retrofit.create(MasterServiceCoins::class.java)
+
+        return masterServiceCoins
+    }
+
     fun setPostSendComprarUnoAPI(
         numero : Int,
         cifras : Int,
@@ -63,6 +70,44 @@ class RestAPI {
         var setPostSendComprarUno = retrofit.create(PostSendComprarUno::class.java)
 
         var call = setPostSendComprarUno.setSendComprarUno(
+
+            numero,
+            cifras,
+            telefono,
+            cliente,
+            id_repolla,
+            ronda
+        )
+
+        call.enqueue(object : Callback<ResponseComprarUno>{
+            override fun onResponse(
+                call: Call<ResponseComprarUno>,
+                response: Response<ResponseComprarUno>
+            ) {
+                Log.i("response", response.body().toString())
+            }
+
+            override fun onFailure(call: Call<ResponseComprarUno>, t: Throwable) {
+                Log.i("error", t.toString())
+            }
+
+        })
+
+
+    }
+
+    fun setPostSendComprarUnoCoinAPI(
+        numero : Int,
+        cifras : Int,
+        telefono: String,
+        cliente: String,
+        id_repolla: String,
+        ronda: String
+    ){
+
+        var setPostSendComprarUnoCoin = retrofit.create(PostSendComprarUnoCoin::class.java)
+
+        var call = setPostSendComprarUnoCoin.setSendComprarUno(
 
             numero,
             cifras,
